@@ -4,7 +4,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/store_name"
         android:layout_width="wrap_content"
@@ -12,15 +11,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="174dp"
-        android:layout_marginLeft="174dp"
-        android:lineSpacingExtra="10sp"
-        android:text="상품명"
-        android:textColor="#7e7e7e"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:layout_marginRight="174dp" />
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginRight="156dp"
+        android:lineSpacingExtra="5sp"
+        android:text="업체명"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/menu_name"

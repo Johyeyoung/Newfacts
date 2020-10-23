@@ -2,6 +2,7 @@ package com.example.newfacts;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,25 +17,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity{
     ListView mListView; //......list 참조 변수
-    int[] images = {R.drawable.selecto, R.drawable.coffeebean};
-    String[] storeName = {"selecto", "Coffeebean"};
-    String[] menuName = {"추억의 달고나", "달고나 라떼"};
-    String[] price = {"5000원", "6500원"};
+    int[] images = {R.drawable.selecto, R.drawable.coffeebean, R.drawable.bback, R.drawable.gongcha};
+    String[] storeName = {"Selecto", "Coffeebean", "빽다방", "GongCha"};
+    String[] menuName = {"추억의 달고나", "달고나 라떼", "흑당 라떼", "초코 버블티"};
+    String[] price = {"5000원", "6500원", "4200원", "6800원"};
 
 
     // 전달할 물품의 정보를 담는 String
-    String content = "";
+    String content;
+    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // button 객체 생성
+
+        result = (TextView)findViewById(R.id.text_result);
+
+//        ////////// 구매완료
+//        Intent intent = getIntent();
+//        String completew = intent.getExtras().getString("complete");
+//        result.setText(completew);
+
+        // 1. button 객체 생성
         Button button_buy =(Button)findViewById(R.id.buy_btn);
         Button button_cart =(Button)findViewById(R.id.cart_btn);
-
-
-        // 1. Button Action 처리
+        // 2. Button Action 처리
         button_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,10 +61,6 @@ public class MainActivity extends AppCompatActivity{
         });
 
 
-
-
-
-
         // ..........0. ListView 가져오기
         mListView = (ListView) findViewById(R.id.listView);
         // ..........1. listView header 추가 (나중에 카테고리로 만들 예정)
@@ -66,12 +70,15 @@ public class MainActivity extends AppCompatActivity{
         // ..........2. adaptor 추가
         CustomAdaptor customAdaptor = new CustomAdaptor();
         mListView.setAdapter(customAdaptor);
-
+        mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         // ..........3. 아이템을 [클릭]시의 이벤트 리스너를 등록
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                content += (storeName[position] + menuName[position] + price[position]);
+                Log.d("content", String.valueOf(position));
+                position -= 1;
+                content = (storeName[position] + " "+ menuName[position] + " "+ price[position]);
+                result.setText(content);
             }
         });
     }

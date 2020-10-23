@@ -7,36 +7,57 @@
     android:orientation="vertical"
     tools:context=".tab3Activity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="top"
-        android:orientation="vertical"
-        >
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:text="구매하기"
-            android:textSize="30dp" />
+            android:textSize="40dp" />
+        <TextView
+            android:id="@+id/textView0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="개인정보"
+            android:textSize="34sp" />
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="배송지입력"
-            android:textSize="25sp" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom">
-
-
+            android:text="배송지 입력"
+            android:textSize="28sp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주소:"
+            android:id="@+id/edit_address" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="연락처"
+            android:textSize="28sp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휴대전화:"
+            android:id="@+id/edit_phone" />
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="30dp" />
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결제 금액 : "
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/complete_btn"
@@ -44,7 +65,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="구매완료" />
-    </LinearLayout>
+
+
+
+
 
 </TableLayout>
 
